@@ -46,7 +46,6 @@ function addSelectedItemToCart() {
 
 // TODO: Update the cart count in the header nav with the number of items in the Cart
 function updateCounter() {
-
   var lStorage = localStorage.getItem("cartStorage");
   var cartInfo = JSON.parse(lStorage);
 
@@ -56,7 +55,22 @@ function updateCounter() {
 // TODO: As you add items into the cart, show them (item & quantity) in the cart preview div
 function updateCartPreview() {
   // TODO: Get the item and quantity from the form
+  var lStorage = localStorage.getItem("cartStorage");
+  var cartInfo = JSON.parse(lStorage);
+
   // TODO: Add a new element to the cartContents div with that information
+  var ul = document.createElement("ul");
+  var div = document.getElementById("cartContents");
+  
+  for (var i in cartInfo) {
+    var li = document.createElement("li")
+    var content = document.createTextNode(`PRODUCT: ${ cartInfo[i].product }, QTY: ${ cartInfo[i].quantity}`);
+
+    li.appendChild(content);
+    ul.appendChild(li);
+  }
+
+  div.appendChild(ul);
 }
 
 // Set up the "submit" event listener on the form.
