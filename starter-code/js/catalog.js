@@ -67,9 +67,8 @@ function updateCartPreview() {
     var content = document.createTextNode(`PRODUCT: ${ cartInfo[i].product }, QTY: ${ cartInfo[i].quantity}`);
 
     li.appendChild(content);
-    ul.appendChild(li);
   }
-
+  ul.appendChild(li);
   div.appendChild(ul);
 }
 
